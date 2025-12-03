@@ -93,7 +93,7 @@
   border: 1px solid var(--normal-border);
   color: var(--normal-text);
   border-radius: var(--border-radius);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--normal-shadow);
   width: var(--width);
   font-size: 13px;
   display: flex;
@@ -143,14 +143,14 @@
   margin-right: var(--toast-icon-margin-end);
 }
 
-:where([data-sonner-toast][data-promise='true']) :where([data-icon]) > svg {
+:where([data-sonner-toast][data-promise='true']) :where([data-icon])>svg {
   opacity: 0;
   transform: scale(0.8);
   transform-origin: center;
   animation: sonner-fade-in 300ms ease forwards;
 }
 
-:where([data-sonner-toast]) :where([data-icon]) > * {
+:where([data-sonner-toast]) :where([data-icon])>* {
   flex-shrink: 0;
 }
 
@@ -287,11 +287,11 @@
   height: var(--front-toast-height);
 }
 
-:where([data-sonner-toast]) > * {
+:where([data-sonner-toast])>* {
   transition: opacity 400ms;
 }
 
-:where([data-sonner-toast][data-expanded='false'][data-front='false'][data-styled='true']) > * {
+:where([data-sonner-toast][data-expanded='false'][data-front='false'][data-styled='true'])>* {
   opacity: 0;
 }
 
@@ -402,6 +402,8 @@
   --error-bg: hsl(359, 100%, 97%);
   --error-border: hsl(359, 100%, 94%);
   --error-text: hsl(360, 100%, 45%);
+
+  --normal-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 [data-sonner-toaster][data-theme='light'] [data-sonner-toast][data-invert='true'] {
@@ -417,7 +419,8 @@
 }
 
 [data-sonner-toaster][data-theme='dark'] {
-  --normal-bg: #000;
+  --normal-bg: #202127;
+  ;
   --normal-border: hsl(0, 0%, 20%);
   --normal-text: var(--gray1);
 
@@ -436,6 +439,8 @@
   --error-bg: hsl(358, 76%, 10%);
   --error-border: hsl(357, 89%, 16%);
   --error-text: hsl(358, 100%, 81%);
+
+  --normal-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 [data-rich-colors='true'] [data-sonner-toast][data-type='success'] {
@@ -584,6 +589,7 @@
     opacity: 0;
     transform: scale(0.8);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -595,6 +601,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   100% {
     opacity: 0;
     transform: scale(0.8);
@@ -605,14 +612,16 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.15;
   }
 }
 
 @media (prefers-reduced-motion) {
+
   [data-sonner-toast],
-  [data-sonner-toast] > *,
+  [data-sonner-toast]>*,
   .sonner-loading-bar {
     transition: none !important;
     animation: none !important;
