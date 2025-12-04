@@ -44,7 +44,7 @@ const Toast: Component<ToastProps> = (props) => {
   const [swipeOut, setSwipeOut] = createSignal(false)
   const [offsetBeforeRemove, setOffsetBeforeRemove] = createSignal(0)
   const [initialHeight, setInitialHeight] = createSignal(0)
-  let toastRef: HTMLLIElement
+  let toastRef!: HTMLLIElement
   const isFront = () => props.index === 0
   const isVisible = () => props.index + 1 <= props.visibleToasts
   const toastType = () => props.toast.type
@@ -438,7 +438,7 @@ const Toaster: Component<ToasterProps> = (props) => {
   const [heights, setHeights] = createSignal<HeightT[]>([])
   const [expanded, setExpanded] = createSignal(false)
   const [interacting, setInteracting] = createSignal(false)
-  let listRef: HTMLOListElement
+  let listRef!: HTMLOListElement
   const hotkeyLabel = () => propsWithDefaults.hotkey.join('+').replace(/Key/g, '').replace(/Digit/g, '')
   const [lastFocusedElementRef, setLastFocusedElementRef] = createSignal<HTMLElement | null>(null)
   const [isFocusedWithinRef, setIsFocusedWithinRef] = createSignal(false)
